@@ -1,0 +1,79 @@
+/* global settings and color variables */
+
+configuration {
+    show-icons: true;
+    drun-display-format: "{icon} {name}";
+    display-drun: "Applications";
+    eh: 1;
+}
+
+@import "hapycolor.rasi"
+
+* {
+    true-transparent: #00000000;
+    background-color: @bg;
+    border-color:     @bg;
+    text-color:       @fg;
+    selected-color:   @color2;
+
+    default-border-radius: 10px;
+    default-margin: 3px 3px;
+}
+
+window, mainbox, listview {
+    background-color: @true-transparent;
+}
+
+window {
+    padding: 20% 25% 20% 25%;
+    fullscreen: true;
+    transparency: "real";
+}
+
+inputbar, prompt, textbox-prompt-colon, entry, element {
+    background-color: @background-color;
+    border-radius: @default-border-radius;
+    text-color: @text-color;
+}
+
+inputbar, element {
+    margin: @default-margin;
+}
+
+inputbar {
+    children: [ prompt, textbox-prompt-colon, entry ];
+}
+
+listview {
+    dynamic: true;
+    layout: vertical;
+    columns: 3;
+}
+
+prompt {
+    padding: 15px 20px;
+    background-color: @selected-color;
+    text-color: @background-color;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: " ::  ";
+    padding: 15px -5px 0px 0px;
+}
+
+entry {
+    padding: 15px 15px 15px 0px;
+}
+
+element {
+    padding: 25px;
+    border: 0px 10px 0px 10px;
+    border-color: @border-color;
+}
+
+element.selected {
+    background-color: @border-color;
+    text-color: @selected-color;
+    border-color: @selected-color;
+}

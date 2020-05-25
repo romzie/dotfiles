@@ -1,0 +1,18 @@
+* {
+  fg: #e4e9d8;
+  bg: #423655;
+  color1: #eda194;
+  color2: #cd8878;
+  color3: #f8eb93;
+  color4: #d1d16a;
+  color5: #684957;
+  color6: #a5606a;
+  color8: #f5a9ac;
+  color9: #efcac8;
+  color10: #ac7f75;
+  color11: #aca7a5;
+  color12: #c3d0c4;
+  color13: #777988;
+  color14: #865962;
+  color15: #d98690;
+}
