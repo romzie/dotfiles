@@ -25,9 +25,9 @@ To allow user to access shared folders (after installing the Guest Additions):
 
 ### Installation from scratch
 
-`sh -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dependencies.sh)"`
+`bash -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dependencies.sh)"`
 
-`sh -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dotfiles.sh)"`
+`bash -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dotfiles.sh)"`
 
 ## Bug fixes
 
