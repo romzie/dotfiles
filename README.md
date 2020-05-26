@@ -1,4 +1,4 @@
-# romzie's dotfiles
+# romzie's dotfiles (git bare repository)
 
 OS: Ubuntu 20.04
 
@@ -15,18 +15,16 @@ Mount the Guest Additions ISO to access all screen resolutions and follow the
 `sudo apt install -y build-essential dkms`
 `sudo bash /media/$USER/vbox_mounted_device/autorun.sh` 
 
-To allow user to access shared folders:
+To allow user to access shared folders (after installing the Guest Additions):
 `sudo adduser $USER vboxsf`
 
 ## Installation from scratch
 
-`sudo apt install -y git`
+`sudo apt install -y wget`
 
-`git clone https://github.com/romzie/dotfiles.git ~/.config/dotfiles`
+`sh -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dependencies.sh)"`
 
-install dependencies with `sudo ~/.config/dotfiles/scripts/install_dependencies.sh`
-
-finally the theme `sudo ~/.config/dotfiles/scripts/regolith-setup.sh`
+`sh -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dotfiles.sh)"`
 
 # Bug fixes
 
