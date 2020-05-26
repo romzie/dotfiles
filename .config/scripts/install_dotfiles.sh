@@ -29,7 +29,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USER/.oh
 # fetch bare repo
 echo ".config/dotfiles" >> .gitignore
 git clone --bare https://github.com/romzie/dotfiles.git $HOME/.config/dotfiles
-dotfiles() {
+function dotfiles() {
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME $@
 }
 dotfiles checkout
@@ -68,7 +68,7 @@ regolith-look refresh
 
 
 ### reboot to finish installation
-reboot
+#reboot
 
 
 ### following setup is optional
