@@ -3,9 +3,15 @@
 
 ### APT
 
+## disable automatic updates
+sudo systemctl stop packagekit
+sudo systemctl mask packagekit
+
+## add ppa
 sudo add-apt-repository ppa:jonathonf/vim -y
 sudo add-apt-repository ppa:papirus/papirus -y
 
+## install packages
 sudo apt update
 
 sudo apt install -y git wget zsh build-essential dkms htop neofetch autojump \
@@ -13,10 +19,6 @@ sudo apt install -y git wget zsh build-essential dkms htop neofetch autojump \
     papirus-icon-theme net-tools imagemagick feh mutter-common curl
 
 pip3 install i3ipc
-
-## disable automatic updates
-sudo systemctl stop packagekit
-sudo systemctl mask packagekit
 
 ## enable verr num on startup
 sudo bash -c "echo \"greeter-setup-script=/usr/bin/numlockx on\" >> /usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf"
