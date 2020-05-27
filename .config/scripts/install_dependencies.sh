@@ -68,6 +68,7 @@ cd build
 ninja
 sudo ninja install
 sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
+cd
 
 
 ### OH MY ZSH
