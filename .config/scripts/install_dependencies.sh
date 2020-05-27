@@ -57,6 +57,18 @@ rm -f lsd_0.17.0_amd64.deb
 ## hapycolor
 pip3 install colormath scipy imgur_downloader
 
+## pantheon greeter fork
+sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
+    libgdk-pixbuf2.0-dev libgee-0.8-dev libgtk-3-dev liblightdm-gobject-1-dev \
+    libx11-dev valac
+git clone https://github.com/nick92/Enso-OS.git ~/.config/Enso-OS
+cd ~/.config/Enso-OS/greeter
+meson build --prefix=/usr
+cd build
+ninja
+sudo ninja install
+sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
+
 
 ### OH MY ZSH
 

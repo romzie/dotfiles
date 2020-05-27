@@ -42,6 +42,11 @@ dotfiles config status.showUntrackedFiles no
 
 ### OTHER THEME RELATED STUFF
 
+## pantheon greeter
+sudo cp ~/.config/greeter-config/greeter-wallpaper.jpg /usr/share/backgrounds/greeter-wallpaper.jpg
+sudo cp ~/.config/greeter-config/lightdm.conf /etc/lightdm/lightdm.conf
+sudo cp ~/.config/greeter-config/pantheon-greeter.conf /etc/lightdm/pantheon-greeter.conf
+
 ## plymouth theme
 wget https://github.com/adi1090x/files/raw/master/plymouth-themes/themes/pack_1/cuts_alt.tar.gz
 tar -xzvf cuts_alt.tar.gz

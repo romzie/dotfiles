@@ -133,7 +133,7 @@ alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # zsh-autosuggestions
 PROMPT_TITLE='${PWD}' # title
 bindkey -M menuselect $key[Tab] menu-complete # zsh-autocomplete
-zstyle ':completion:correct-word:*' tag-order '-' # zsh-autocomplete
+zstyle ':completion:correct-word:*' max-errors 0 # zsh-autocomplete
 
 # Set custom global variables
 export EDITOR="vim"
