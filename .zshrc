@@ -77,6 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     autojump  # magic dir jumps
+    autoupdate  # auto update oh-my-zsh plugins
     colored-man-pages  # add colors to man pages
     command-not-found  # suggests package to install
     common-aliases  # aliases (ls, rm, mv...)
@@ -132,8 +133,9 @@ alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 # Set zsh plugin variables and settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # zsh-autosuggestions
 PROMPT_TITLE='${PWD}' # title
-bindkey -M menuselect $key[Tab] menu-complete # zsh-autocomplete
-zstyle ':completion:correct-word:*' max-errors 0 # zsh-autocomplete
+zstyle ':autocomplete:tab:*' completion 'select' # zsh-autocomplete keep tab behavior
+zstyle ':autocomplete:(slash|space):*' magic 'off' # zsh-autocomplete disable autocorrection
+export UPDATE_ZSH_DAYS=7  # autoupdate
 
 # Set custom global variables
 export EDITOR="vim"
