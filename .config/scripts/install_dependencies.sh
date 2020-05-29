@@ -23,6 +23,10 @@ pip3 install i3ipc
 ## enable verr num on startup
 sudo bash -c "echo \"greeter-setup-script=/usr/bin/numlockx on\" >> /usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf"
 
+## disable auto lock
+gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+
 ## polybar (package not available in 20.04)
 sudo apt install -y libcairo2-dev libxcb-composite0-dev libxcb-randr0-dev \
     xcb-proto libxcb1-dev libxcb-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev \
@@ -55,7 +59,7 @@ sudo dpkg -i lsd_0.17.0_amd64.deb
 rm -f lsd_0.17.0_amd64.deb
 
 ## hapycolor
-pip3 install colormath scipy imgur_downloader
+pip3 install colormath scipy imgur_downloader sklearn docopt
 
 ## pantheon greeter fork
 sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \

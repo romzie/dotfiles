@@ -75,7 +75,7 @@ case $choice in
     $refresh)
         rm -f $options_save_file
         cd $hapycolor_dir
-        python3 -m hapycolor --dir $wallpapers_dir --Xresources --rasi $palettes_dir
+        python3 -m hapycolor --dir $wallpapers_dir --Xresources --rasi -o $palettes_dir
         ;;
     $refresh_all)
         rm -f $options_save_file
@@ -87,7 +87,7 @@ case $choice in
         cp $palette_save_Xresources $palette_config_file_Xresources
         cp $palette_save_rasi $palette_config_file_rasi
         cd $hapycolor_dir
-        python3 -m hapycolor --dir $wallpapers_dir --Xresources --rasi $palettes_dir --refresh
+        python3 -m hapycolor --dir $wallpapers_dir --Xresources --rasi -o $palettes_dir --refresh
         ;;
     *)
         palette_short_name=$(echo $choice | awk -F ' ' '{print $1}')
