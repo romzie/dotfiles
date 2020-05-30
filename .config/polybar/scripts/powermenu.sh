@@ -27,6 +27,7 @@ case $choice in
         i3-msg exit
         ;;
     $lock)
-        i3-lock
+        sleep 0.2
+        /home/$USER/.config/scripts/lock.sh
         ;;
 esac

@@ -36,13 +36,11 @@ wget https://github.com/polybar/polybar/releases/download/3.4.2/polybar-3.4.2.ta
 tar -xvf polybar-3.4.2.tar
 rm -f polybar-3.4.2.tar
 mv polybar ~/.config/polybar-source
-cd ~/.config/polybar-source
-mkdir build
-cd build
+mkdir -p ~/.config/polybar-source/build
+cd ~/.config/polybar-source/build
 cmake ..
 make -j$(nproc)
 sudo make install
-cd
 
 ## nerd fonts
 mkdir -p ~/.local/share/fonts
@@ -51,7 +49,6 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/DejaVuSans
 unzip DejaVuSansMono.zip
 rm -f DejaVuSansMono.zip
 fc-cache -fv
-cd
 
 ## lsd
 wget https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd_0.17.0_amd64.deb
@@ -60,6 +57,7 @@ rm -f lsd_0.17.0_amd64.deb
 
 ## hapycolor
 pip3 install colormath scipy imgur_downloader sklearn docopt
+git clone --branch 16colors https://github.com/rvdz/hapycolor.git ~/.config/hapycolor
 
 ## pantheon greeter fork
 sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
@@ -68,11 +66,24 @@ sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
 git clone https://github.com/nick92/Enso-OS.git ~/.config/Enso-OS
 cd ~/.config/Enso-OS/greeter
 meson build --prefix=/usr
-cd build
+cd ~/.config/Enso-OS/greeter/build
 ninja
 sudo ninja install
 sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
-cd
+
+## i3lock-color
+sudo apt install pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
+    libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev \
+    libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev \
+    libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+git clone https://github.com/Raymo111/i3lock-color.git ~/.config/i3lock-color
+cd ~/.config/i3lock-color
+bash install-i3lock-color.sh
+
+## i3lock-fancy
+git clone https://github.com/meskarune/i3lock-fancy.git ~/.config/i3lock-fancy
+cd ~/.config/i3lock-fancy
+sudo make install
 
 
 ### OH MY ZSH

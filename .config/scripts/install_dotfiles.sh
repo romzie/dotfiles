@@ -4,18 +4,17 @@
 ### SHELL
 
 ## oh-my-zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/$USER/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/$USER/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git /home/$USER/.oh-my-zsh/custom/plugins/you-should-use
-git clone https://github.com/marlonrichert/zsh-autocomplete.git /home/$USER/.oh-my-zsh/custom/plugins/zsh-autocomplete
-git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git /home/$USER/.oh-my-zsh/custom/plugins/autoupdate
-git clone https://github.com/zpm-zsh/title.git /home/$USER/.oh-my-zsh/custom/plugins/title
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/plugins/you-should-use
+git clone https://github.com/marlonrichert/zsh-autocomplete.git ~/.oh-my-zsh/custom/plugins/zsh-autocomplete
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git ~/.oh-my-zsh/custom/plugins/autoupdate
+git clone https://github.com/zpm-zsh/title.git ~/.oh-my-zsh/custom/plugins/title
 
 ## resh
 git clone https://github.com/curusarn/resh.git ~/.config/resh
 cd ~/.config/resh
 bash scripts/rawinstall.sh
-cd
 
 
 ### DOTFILES
@@ -24,11 +23,11 @@ cd
 ranger --copy-config=all
 
 # powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USER/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # fetch bare repo
 echo ".config/dotfiles" >> .gitignore
-git clone --bare https://github.com/romzie/dotfiles.git $HOME/.config/dotfiles
+git clone --bare https://github.com/romzie/dotfiles.git ~/.config/dotfiles
 function dotfiles() {
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME $@
 }
@@ -62,10 +61,6 @@ cd ~/.vim_runtime
 git submodule update --init --recursive
 cd ~/.vim_runtime/sources_non_forked/youcompleteme
 python3 install.py
-cd
-
-## hapycolor
-git clone https://github.com/rvdz/hapycolor ~/.config/hapycolor
 
 
 ### refresh theme
