@@ -48,4 +48,5 @@ i3lock \
     --bar-base-width=24 \
     --bar-position="h/2+6" \
     \
+    --color=#00000000 \
     --image $screenshot_png \
