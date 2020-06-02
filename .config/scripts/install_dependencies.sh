@@ -1,11 +1,10 @@
 #! /bin/bash
 
 
-### APT
+### SYSTEM
 
 ## disable automatic updates
 sudo systemctl stop packagekit
-sudo systemctl mask packagekit
 
 ## add ppa
 sudo add-apt-repository ppa:jonathonf/vim -y
@@ -14,9 +13,9 @@ sudo add-apt-repository ppa:papirus/papirus -y
 ## install packages
 sudo apt update
 
-sudo apt install -y git wget zsh build-essential dkms htop neofetch autojump \
+sudo apt install -y git wget zsh build-essential dkms neofetch autojump catimg \
     vim python3-dev python3-pip cmake numlockx libnotify-bin ranger highlight \
-    papirus-icon-theme net-tools imagemagick feh mutter-common curl
+    papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd
 
 pip3 install i3ipc
 
@@ -24,8 +23,14 @@ pip3 install i3ipc
 sudo bash -c "echo \"greeter-setup-script=/usr/bin/numlockx on\" >> /usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf"
 
 ## disable auto lock
+gsettings set com.ubuntu.touch.system activity-timeout 0
+gsettings set com.ubuntu.touch.system dim-timeout 0
+gsettings set com.ubuntu.update-notifier no-show-notifications true
+gsettings set com.ubuntu.update-notifier show-apport-crashes false
 gsettings set org.gnome.desktop.session idle-delay 0
-gsettings set org.gnome.desktop.screensaver lock-enabled false
+
+
+### BASICS
 
 ## polybar (package not available in 20.04)
 sudo apt install -y libcairo2-dev libxcb-composite0-dev libxcb-randr0-dev \
@@ -50,15 +55,6 @@ unzip DejaVuSansMono.zip
 rm -f DejaVuSansMono.zip
 fc-cache -fv
 
-## lsd
-wget https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd_0.17.0_amd64.deb
-sudo dpkg -i lsd_0.17.0_amd64.deb
-rm -f lsd_0.17.0_amd64.deb
-
-## hapycolor
-pip3 install colormath scipy imgur_downloader sklearn docopt
-git clone --branch 16colors https://github.com/rvdz/hapycolor.git ~/.config/hapycolor
-
 ## pantheon greeter fork
 sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
     libgdk-pixbuf2.0-dev libgee-0.8-dev libgtk-3-dev liblightdm-gobject-1-dev \
@@ -80,9 +76,67 @@ git clone https://github.com/Raymo111/i3lock-color.git ~/.config/i3lock-color
 cd ~/.config/i3lock-color
 bash install-i3lock-color.sh
 
-## i3lock-fancy
-git clone https://github.com/meskarune/i3lock-fancy.git ~/.config/i3lock-fancy
-cd ~/.config/i3lock-fancy
+
+### CLI UTILITIES
+
+## lsd
+wget https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd_0.17.0_amd64.deb
+sudo dpkg -i lsd_0.17.0_amd64.deb
+rm -f lsd_0.17.0_amd64.deb
+
+## bat
+wget https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb
+sudo dpkg -i bat_0.15.4_amd64.deb
+rm -f bat_0.15.4_amd64.deb
+
+## fx
+wget https://github.com/antonmedv/fx/releases/download/18.0.1/fx-linux.zip
+unzip fx-linux.zip
+rm -f fx-linux.zip
+sudo mv fx-linux /usr/local/bin/fx
+
+## ytop
+wget https://github.com/cjbassi/ytop/releases/download/0.6.2/ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz
+tar -xvf ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz
+sudo mv ytop /usr/local/bin/ytop
+rm -f ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz
+
+## pipes
+git clone https://github.com/pipeseroni/pipes.sh.git ~/.config/pipes
+cd ~/.config/pipes
+sudo make install
+
+## cmatrix
+sudo apt install -y cmatrix
+
+
+### MISC
+
+## hapycolor
+pip3 install colormath scipy imgur_downloader sklearn docopt
+git clone --branch 16colors https://github.com/rvdz/hapycolor.git ~/.config/hapycolor
+
+## tetris
+sudo snap install tetris-thefenriswolf
+
+## mine sweeper
+git clone https://github.com/unknownblueguy6/MineSweeper.git ~/.config/mine-sweeper
+cd ~/.config/mine-sweeper
+make
+
+## 2048
+git clone https://github.com/plibither8/2048.cpp.git ~/.config/2048
+cd ~/.config/2048/build
+cmake ../
+cmake --build . --target install
+
+## solitaire
+sudo apt install -y libncurses5-dev libncursesw5-dev
+wget -O tty-solitaire-1.3.0.tar.gz https://github.com/mpereira/tty-solitaire/archive/v1.3.0.tar.gz
+tar xvf tty-solitaire-1.3.0.tar.gz
+mv tty-solitaire-1.3.0 ~/.config/tty-solitaire
+cd ~/.config/tty-solitaire
+make -j$(nproc)
 sudo make install
 
 

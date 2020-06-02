@@ -118,13 +118,20 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias cat='bat'
+alias cmatrix='cmatrix -baf'
 alias cp='cpv --progress -hhh'
 alias ls='lsd'
 alias lst='ls --tree'
+alias minesweeper='~/.config/mine-sweeper/mine'
 alias pip='pip3'
+alias pipes='pipes.sh -f 30 -p 3 -R'
 alias python='python3'
 alias r='ranger'
 alias rmf='rm -f'
+alias solitaire='ttysolitaire --no-background-color'
+alias tetris='tetris-thefenriswolf.tetris'
+alias ytop='ytop -s'
 alias zshrc='vim ~/.zshrc'
 
 # dotfiles management
@@ -133,8 +140,9 @@ alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 # Set zsh plugin variables and settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # zsh-autosuggestions
 PROMPT_TITLE='${PWD}' # title
-zstyle ':autocomplete:tab:*' completion 'select' # zsh-autocomplete keep tab behavior
+zstyle ':autocomplete:tab:*' completion 'cycle' # zsh-autocomplete keep tab behavior
 zstyle ':autocomplete:(slash|space):*' magic 'off' # zsh-autocomplete disable autocorrection
+zstyle ':autocomplete:list-choices:*' max-lines 60%
 export UPDATE_ZSH_DAYS=7  # autoupdate
 
 # Set custom global variables
