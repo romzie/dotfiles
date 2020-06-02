@@ -38,8 +38,8 @@ glx-copy-from-front = false;
 # GLX backend: Avoid rebinding pixmap on window damage.
 # Probably could improve performance on rapid window content changes, but is known to break things on some drivers (LLVMpipe).
 # Recommended if it works.
-glx-no-rebind-pixmap = true;
-use-damage = true;
+glx-no-rebind-pixmap = false;
+use-damage = false;
 
 
 #################################
@@ -78,7 +78,7 @@ shadow-exclude = [
     "name = 'xfce4-notifyd'",
     "name = 'gnome-screenshot'",
     "name *= 'VLC'",
-    "name *= 'compton'",
+    #"name *= 'compton'",
     "name *= 'cpt_frame_window'",
     "name *= 'Chromium'",
     "name *= 'Chrome'",
