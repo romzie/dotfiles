@@ -15,7 +15,7 @@ sudo apt update
 
 sudo apt install -y git wget zsh build-essential dkms neofetch autojump catimg \
     vim python3-dev python3-pip cmake numlockx libnotify-bin ranger highlight \
-    papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd
+    papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd htop
 
 pip3 install i3ipc
 
@@ -60,12 +60,6 @@ sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
     libgdk-pixbuf2.0-dev libgee-0.8-dev libgtk-3-dev liblightdm-gobject-1-dev \
     libx11-dev valac
 git clone https://github.com/nick92/Enso-OS.git ~/.config/Enso-OS
-cd ~/.config/Enso-OS/greeter
-meson build --prefix=/usr
-cd ~/.config/Enso-OS/greeter/build
-ninja
-sudo ninja install
-sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
 
 ## i3lock-color
 sudo apt install pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
@@ -101,6 +95,13 @@ tar -xvf ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz
 sudo mv ytop /usr/local/bin/ytop
 rm -f ytop-0.6.2-x86_64-unknown-linux-gnu.tar.gz
 
+
+### MISC
+
+## hapycolor
+pip3 install colormath scipy imgur_downloader sklearn docopt
+git clone --branch 16colors https://github.com/rvdz/hapycolor.git ~/.config/hapycolor
+
 ## pipes
 git clone https://github.com/pipeseroni/pipes.sh.git ~/.config/pipes
 cd ~/.config/pipes
@@ -108,13 +109,6 @@ sudo make install
 
 ## cmatrix
 sudo apt install -y cmatrix
-
-
-### MISC
-
-## hapycolor
-pip3 install colormath scipy imgur_downloader sklearn docopt
-git clone --branch 16colors https://github.com/rvdz/hapycolor.git ~/.config/hapycolor
 
 ## tetris
 sudo snap install tetris-thefenriswolf

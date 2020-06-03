@@ -42,6 +42,12 @@ dotfiles config status.showUntrackedFiles no
 ### OTHER THEME RELATED STUFF
 
 ## pantheon greeter
+cd ~/.config/Enso-OS/greeter
+meson build --prefix=/usr
+cd ~/.config/Enso-OS/greeter/build
+ninja
+sudo ninja install
+sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
 sudo cp ~/.config/greeter-config/greeter-wallpaper.jpg /usr/share/backgrounds/greeter-wallpaper.jpg
 sudo cp ~/.config/greeter-config/lightdm.conf /etc/lightdm/lightdm.conf
 sudo cp ~/.config/greeter-config/pantheon-greeter.conf /etc/lightdm/pantheon-greeter.conf
