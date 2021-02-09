@@ -57,8 +57,9 @@ rm -f DejaVuSansMono.zip
 fc-cache -fv
 
 ## pantheon greeter fork
-sudo apt install -y gir1.2-gtkclutter-1.0 libgbm-dev libcogl-dev \
-    libcogl-pango-dev libcogl-path-dev
+sudo apt install -y gir1.2-gtkclutter-1.0
+sudo apt install -y libgbm-dev
+sudo apt install -y libcogl-dev libcogl-pango-dev libcogl-path-dev
 sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
     libgdk-pixbuf2.0-dev libgee-0.8-dev libgtk-3-dev liblightdm-gobject-1-dev \
     libx11-dev valac
