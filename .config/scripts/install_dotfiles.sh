@@ -26,31 +26,29 @@ ranger --copy-config=all
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # fetch bare repo
+cd $HOME
 echo ".config/dotfiles" >> .gitignore
 git clone --bare https://github.com/romzie/dotfiles.git ~/.config/dotfiles
 function dotfiles() {
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME $@
 }
-dotfiles checkout
-if [[ $? -ne 0 ]]; then
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} rm -f {}
-fi
+dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} rm -f {}
 dotfiles checkout
 dotfiles config status.showUntrackedFiles no
 
 
 ### OTHER THEME RELATED STUFF
 
-## pantheon greeter
-cd ~/.config/Enso-OS/greeter
-meson build --prefix=/usr
-cd ~/.config/Enso-OS/greeter/build
-ninja
-sudo ninja install
-sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
-sudo cp ~/.config/greeter-config/greeter-wallpaper.jpg /usr/share/backgrounds/greeter-wallpaper.jpg
-sudo cp ~/.config/greeter-config/lightdm.conf /etc/lightdm/lightdm.conf
-sudo cp ~/.config/greeter-config/pantheon-greeter.conf /etc/lightdm/pantheon-greeter.conf
+## pantheon greeter (broken)
+#cd ~/.config/Enso-OS/greeter
+#meson build --prefix=/usr
+#cd ~/.config/Enso-OS/greeter/build
+#ninja
+#sudo ninja install
+#sudo cp ~/.config/Enso-OS/greeter/data/pantheon-greeter.desktop.in.in /usr/share/xgreeters/pantheon-greeter.desktop
+#sudo cp ~/.config/greeter-config/greeter-wallpaper.jpg /usr/share/backgrounds/greeter-wallpaper.jpg
+#sudo cp ~/.config/greeter-config/lightdm.conf /etc/lightdm/lightdm.conf
+#sudo cp ~/.config/greeter-config/pantheon-greeter.conf /etc/lightdm/pantheon-greeter.conf
 
 ## plymouth theme
 wget https://github.com/adi1090x/files/raw/master/plymouth-themes/themes/pack_1/cuts_alt.tar.gz
