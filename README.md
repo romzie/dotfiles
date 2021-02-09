@@ -3,7 +3,7 @@ This is a git bare repository.
 
 My config:
 
-* DE: Regolith 1.4
+* DE: Regolith 1.5.2
 * WM: i3-gaps
 * Terminal: gnome-terminal
 * Font: DejaVu Sans Mono Nerd Font
@@ -17,7 +17,7 @@ Mount the Guest Additions ISO to access all screen resolutions and follow the
 
 `sudo apt install -y build-essential dkms`
 
-`sudo bash /media/$USER/vbox_mounted_device/autorun.sh` 
+`sudo bash /media/$USER/<vbox_mounted_device>/autorun.sh` 
 
 To allow user to access shared folders (after installing the Guest Additions):
 
