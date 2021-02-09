@@ -13,9 +13,10 @@ sudo add-apt-repository ppa:papirus/papirus -y
 ## install packages
 sudo apt update
 
-sudo apt install -y git wget zsh build-essential dkms neofetch autojump catimg \
+sudo apt install -y git wget zsh build-essential dkms autoconf neofetch autojump \
     vim python3-dev python3-pip cmake numlockx libnotify-bin ranger highlight \
-    papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd htop
+    papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd htop \
+    catimg
 
 pip3 install i3ipc
 
@@ -56,13 +57,15 @@ rm -f DejaVuSansMono.zip
 fc-cache -fv
 
 ## pantheon greeter fork
+sudo apt install -y gir1.2-gtkclutter-1.0 libgbm-dev libcogl-dev \
+    libcogl-pango-dev libcogl-path-dev
 sudo apt install -y xserver-xephyr meson libclutter-gtk-1.0-dev \
     libgdk-pixbuf2.0-dev libgee-0.8-dev libgtk-3-dev liblightdm-gobject-1-dev \
     libx11-dev valac
 git clone https://github.com/nick92/Enso-OS.git ~/.config/Enso-OS
 
 ## i3lock-color
-sudo apt install pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
+sudo apt install -y pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
     libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev \
     libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev \
     libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
@@ -120,9 +123,10 @@ make
 
 ## 2048
 git clone https://github.com/plibither8/2048.cpp.git ~/.config/2048
+mkdir -p ~/.config/2048/build
 cd ~/.config/2048/build
 cmake ../
-cmake --build . --target install
+sudo cmake --build . --target install
 
 ## solitaire
 sudo apt install -y libncurses5-dev libncursesw5-dev
@@ -137,5 +141,6 @@ sudo make install
 ### OH MY ZSH
 
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cd $HOME
 
 ###
