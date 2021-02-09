@@ -50,8 +50,6 @@ use-damage = false;
 
 # Enabled client-side shadows on windows.
 shadow = true;
-# Clear shadom behind windows (experimental)
-clear-shadow = true;
 # The blur radius for shadows. (default 12)
 shadow-radius = 15;
 # The left offset for shadows. (default -15)
@@ -183,7 +181,8 @@ detect-client-opacity = true;
 # If not specified or 0, compton will try detecting this with X RandR extension.
 refresh-rate = 0;
 
-vsync = false;
+# Screen is laggy without this.
+vsync = true;
 
 # Enable DBE painting mode, intended to use with VSync to (hopefully) eliminate tearing.
 # Reported to have no effect, though.
