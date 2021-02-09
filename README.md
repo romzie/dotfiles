@@ -25,6 +25,12 @@ To allow user to access shared folders (after installing the Guest Additions):
 
 ### Installation from scratch
 
+Install regolith 1.4.1 from ISO installer then upgrade to 1.5.2 with :
+
+`sudo apt update && sudo apt dist-upgrade`
+
+Then install my config :
+
 `bash -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dependencies.sh)"`
 
 `bash -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dotfiles.sh)"`
