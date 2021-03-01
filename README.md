@@ -35,6 +35,8 @@ Then install my config :
 
 `bash -c "$(wget -O- https://raw.githubusercontent.com/romzie/dotfiles/master/.config/scripts/install_dotfiles.sh)"`
 
+Then for theme use, change the path to wallpaper folder in `~/.config/polybar/scripts/theme_switcher.sh`, ligne 6. Then refresh all themes.
+
 ## Bug fixes
 
 ### gnome-control-center (already done in install script)
