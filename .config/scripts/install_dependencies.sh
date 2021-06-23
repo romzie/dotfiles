@@ -6,9 +6,15 @@
 ## disable automatic updates
 sudo systemctl stop packagekit
 
-## add ppa
+## add ppas
+# vim
 sudo add-apt-repository ppa:jonathonf/vim -y
+# papirus
 sudo add-apt-repository ppa:papirus/papirus -y
+# brave
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
 
 ## install packages
 sudo apt update
@@ -16,7 +22,7 @@ sudo apt update
 sudo apt install -y git wget zsh build-essential dkms autoconf neofetch autojump \
     vim python3-dev python3-pip cmake numlockx libnotify-bin ranger highlight \
     papirus-icon-theme net-tools imagemagick feh mutter-common curl snapd htop \
-    catimg
+    catimg apt-transport-https brave-browser
 
 pip3 install i3ipc
 
