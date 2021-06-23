@@ -90,7 +90,7 @@ plugins=(
     sudo  # 2x Esc key to add sudo to last or current cmd
     title  # remove host and user from terminal title
     you-should-use  # add aliases reminders
-    zsh-autocomplete  # on the fly suggestion grid (source before syntax-highlight)
+    #zsh-autocomplete  # on the fly suggestion grid (source before syntax-highlight)
     zsh-autosuggestions  # last cmd suggestion
     zsh-syntax-highlighting  # cmd syntax highlighting
 )
@@ -141,9 +141,9 @@ alias dotfiles='git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME'
 # Set zsh plugin variables and settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6' # zsh-autosuggestions
 PROMPT_TITLE='${PWD}' # title
-zstyle ':autocomplete:tab:*' completion 'cycle' # zsh-autocomplete keep tab behavior
-zstyle ':autocomplete:(slash|space):*' magic 'off' # zsh-autocomplete disable autocorrection
-zstyle ':autocomplete:list-choices:*' max-lines 60%
+#zstyle ':autocomplete:tab:*' completion 'cycle' # zsh-autocomplete keep tab behavior
+#zstyle ':autocomplete:(slash|space):*' magic 'off' # zsh-autocomplete disable autocorrection
+#zstyle ':autocomplete:list-choices:*' max-lines 60%
 export UPDATE_ZSH_DAYS=7  # autoupdate
 
 # Set custom global variables
